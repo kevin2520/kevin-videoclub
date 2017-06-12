@@ -1,0 +1,21 @@
+<section class="container" ng-cloak="">
+	
+	<div>This is the usuarios-list view.</div>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Nombres</th>
+				<th>Apellidos</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in vm.usuarios">
+				<td>{{item.nombres}}</td>
+				<td>{{item.apellidos}}</td>
+				<td>{{item.email}}</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

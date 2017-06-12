@@ -1,0 +1,28 @@
+<div class="navbar navbar-default navbar-static-top" >
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" ng-click="vm.isCollapsed = !vm.isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">video-club</a>
+    </div>
+    <div uib-collapse="vm.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav">
+        <li ng-repeat="item in nav.menu" ui-sref-active="active">
+            <a ui-sref="{{item.state}}">{{item.title}}</a>
+        </li>
+         <li ng-if="vm.AuthService.isAdmin()" ui-sref-active="active"><a ui-sref="usuarios-list">Usuarios</a></li>
+         <li ng-if="vm.AuthService.isAdmin()" ui-sref-active="active"><a ui-sref="usuarios-create">Nuevo usuario</a></li>
+         
+         <li ng-if="vm.AuthService.isAuthenticated()" ui-sref-active="active"><a ui-sref="peliculas-list">Peliculas</a></li>
+
+         <li ng-show="!vm.AuthService.isAuthenticated()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+
+         <li ng-show="vm.AuthService.isAuthenticated()" ui-sref-active="active"><a  ng-click="vm.AuthService.logout()" href="">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

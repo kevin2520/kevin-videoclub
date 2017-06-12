@@ -1,0 +1,16 @@
+<div>This is the usuarios-create view.</div>
+
+<form name="userForm" ng-submit="vm.guardarUsuario()" >
+	
+	<label for="">Departamento</label>
+	<select name="departamento" id="" ng-model="vm.idDepartamento" ng-change="vm.getCiudad()">
+		<option ng-value="item.id" ng-repeat="item in vm.departamentos">{{item.nombre}}</option>
+	</select>
+
+<label for="">Ciudades</label>
+	<select name="ciudades" id="" ng-model="vm.usuario.ciudad.id" >
+		<option ng-value="item.id" ng-repeat="item in vm.ciudades">{{item.nombre}}</option>	
+	</select>
+
+	<button type="submit">Guardar</button>
+</form>
