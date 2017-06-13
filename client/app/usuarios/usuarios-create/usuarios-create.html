@@ -1,6 +1,6 @@
 <div>This is the usuarios-create view.</div>
 
-<form name="userForm" ng-submit="vm.guardarUsuario()" >
+<form name="userForm"  ng-submit="userForm.$valid && vm.guardarUsuario()" novalidate>
 	
 	<label for="">Departamento</label>
 	<select name="departamento" id="" ng-model="vm.idDepartamento" ng-change="vm.getCiudad()">
@@ -12,5 +12,74 @@
 		<option ng-value="item.id" ng-repeat="item in vm.ciudades">{{item.nombre}}</option>	
 	</select>
 
-	<button type="submit">Guardar</button>
+<label for="">Tipo documento</label>
+	<select name="ciudades" id="" ng-model="vm.usuario.tipoDocumento.id" >
+		<option ng-value="1" >Cédula de ciudadania</option>	
+		<option ng-value="2" >Tarjeta de identidad</option>	
+	</select>	
+
+ <label for="">Documento</label>
+	            <input  type="text" required  
+	            name="documento" autocomplete="off" minlength="7" maxlength="15" 
+                ng-model="vm.usuario.numDocumento" ng-pattern="/^[0-9]*$/">	
+	            <div ng-messages="userForm.documento.$error" ng-show="userForm.documento.$dirty" >
+
+                  <div ng-message="required">Este campo es requerido.</div>
+                  <div ng-message="pattern">Ingresar números enteros sin espacios.</div>
+                  <div ng-message="minlength">El documento debe tener como mínimo 7 caracteres.</div>
+                  <div ng-message="maxlength">El documento no debe pasar de 15 caracteres.</div>
+                </div>
+			</div> 	
+			<div>
+				
+	            <label>Nombres</label>
+	            <input type="text" name="nombres" required minlength="3" maxlength="40" ng-model="vm.usuario.nombres" >
+
+	            <div ng-messages="userForm.nombres.$error" ng-show="userForm.documento.$dirty">
+	            	<p ng-message="required">Este campo es requerido</p>
+	            </div>
+
+			</div>
+			<div>	
+			<label >Apellidos</label>
+	<input type="text" name="apellidos" required ng-model="vm.usuario.apellidos">
+	<div ng-messages="userForm.apellidos.$error" ng-show="userForm.apellidos.$dirty">
+	            	<p ng-message="required">Este campo es requerido</p>
+	            </div>
+			</div>
+<div>	
+			<label >Email</label>
+	<input type="text" name="email" required ng-model="vm.usuario.email">
+	<div ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty">
+	            	<p ng-message="required">Este campo es requerido</p>
+	            </div>
+			</div>
+
+	<div>	
+			<label >Contraseña</label>
+	<input type="text" name="password" required ng-model="vm.usuario.password">
+	<div ng-messages="userForm.password.$error" ng-show="userForm.password.$dirty">
+	            	<p ng-message="required">Este campo es requerido</p>
+	            </div>
+			</div>
+	
+	<label >Genero</label>
+
+	<select name="departamento" id="" ng-model="vm.usuario.sexo" >
+		<option value="F" >Femenino</option>
+		<option value="M" >Masculino</option>
+	</select>
+
+  <div class="btn btn-default" ngf-select ng-model="vm.usuario.fotoPerfil" name="file" ngf-pattern="'image/*'"
+    ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+    ngf-resize="{width: 300, height: 300}">Imágen</div>
+
+ <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <img ngf-src="vm.usuario.fotoPerfil"  ngf-resize="{width: 200, height: 200, quality: 0.9}">
+
+        </div>
+      </div>
+
+	<button type="submit" ng-disabled="userForm.$invalid" >Guardar</button>
 </form>

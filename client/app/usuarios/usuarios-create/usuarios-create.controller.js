@@ -3,9 +3,12 @@
 (function(){
 
 class UsuariosCreateComponent {
-  constructor(ciudadesService,departamentosService) {
+  constructor(ciudadesService,departamentosService,usuariosService,Upload,API) {
     this.ciudadesService = ciudadesService;
     this.departamentosService = departamentosService;
+    this.usuariosService = usuariosService;
+    this.API = API;
+    this.Upload = Upload;
   }
 
   $onInit(){
@@ -28,6 +31,20 @@ class UsuariosCreateComponent {
 
   guardarUsuario(){
   	console.log(this.usuario);
+    this.Upload.upload({
+      url:this.API+"/api/usuarios",
+      headers : {
+        'Content-Type': this.usuario.fotoPerfil.type
+      },
+      data:{
+        usuario:this.usuario
+      }
+    })
+    //this.usuariosService.save(this.usuario).$promise
+    .then(response => {
+      console.log(response);
+    })
+    .catch(err => console.log(err));
   }
 }
 

@@ -4,8 +4,10 @@ angular.module('videoClubApp', [
     'videoClubApp.constants', 
     'ngCookies', 
     'ngResource', 
+    'ngMessages', 
     'ngSanitize',
-    'ui.router', 
+    'ui.router',
+    'ngFileUpload', 
     'satellizer'
   ])
   .constant("API","http://localhost:25956/adsi2017_backend_completo")
