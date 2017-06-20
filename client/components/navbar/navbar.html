@@ -19,9 +19,16 @@
          
          <li ng-if="vm.AuthService.isAuthenticated()" ui-sref-active="active"><a ui-sref="peliculas-list">Peliculas</a></li>
 
-         <li ng-show="!vm.AuthService.isAuthenticated()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+      </ul>
 
-         <li ng-show="vm.AuthService.isAuthenticated()" ui-sref-active="active"><a  ng-click="vm.AuthService.logout()" href="">Logout</a></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-show="!vm.AuthService.isAuthenticated()"><a ui-sref="login">Login</a></li>
+        <li ng-show="vm.AuthService.isAuthenticated()" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{vm.AuthService.datosUsuario()}} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li ><a ng-click="vm.AuthService.logout()" href="#">Salir</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

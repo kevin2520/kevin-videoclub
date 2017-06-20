@@ -8,6 +8,7 @@
 				<th>Nombres</th>
 				<th>Apellidos</th>
 				<th>Email</th>
+				<th>Acción</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -15,6 +16,7 @@
 				<td>{{item.nombres}}</td>
 				<td>{{item.apellidos}}</td>
 				<td>{{item.email}}</td>
+				<td><a class="btn btn-primary" ui-sref="usuarios-update({idUsuario:item.id})">Editar</a></td>
 			</tr>
 		</tbody>
 	</table>

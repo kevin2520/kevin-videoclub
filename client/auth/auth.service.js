@@ -10,6 +10,7 @@ function AuthService($auth,$state){
 		logout:logout,
 		isAdmin:isAdmin,
 		idUsuario:idUsuario,
+		datosUsuario:datosUsuario,
 		isAuthenticated:isAuthenticated
 	}
 
@@ -37,7 +38,7 @@ function AuthService($auth,$state){
 	}
 	function isAdmin(){
 		if(Auth.isAuthenticated()){
-				console.log("ROLES",$auth.getPayload().roles);
+			
 				if($auth.getPayload().roles.indexOf("ADMIN") !== -1){
 					return true;
 				}else{
@@ -48,9 +49,18 @@ function AuthService($auth,$state){
 		}
 
 	}
+	
+	function datosUsuario(){
+		if(Auth.isAuthenticated()){
+
+			return $auth.getPayload().user;
+		}
+	}
 	function idUsuario(){
 		if(Auth.isAuthenticated()){
-			return $auth.getPayload().idUsuario;
+			return $auth.getPayload().sub;
+		} else{
+			return null;
 		}
 	}
 	function isAuthenticated(){

@@ -1,10 +1,9 @@
-<div>This is the usuarios-create view.</div>
+<h3>Usuarios Update</h3>
 
-<form name="userForm" ng-submit="vm.createUser()">
+<form name="userForm" ng-submit="vm.updateUser()">
 <label for="">Tipo Documento</label>
-	<select name="" id=""  ng-model="vm.usuario.tipoDocumento.id">
-		<option ng-value="{{item.id}}" ng-repeat="item in vm.tiposDocumento">{{item.descripcion}}</option>
-	</select>
+	<input type="text" ng-model="vm.usuario.tipoDocumento.id">
+
 
 	<label for="">Documento</label>
 	<input type="text" ng-model="vm.usuario.numDocumento">
@@ -18,9 +17,7 @@
 	<label for="">Email</label>
 	<input type="text" ng-model="vm.usuario.email">
 
-	<label for="">password</label>
-	<input type="password" ng-model="vm.usuario.password">
-
+	
 	<label for="">Sexo</label>
 	<input type="text" ng-model="vm.usuario.sexo">
 
@@ -35,6 +32,6 @@
 		<option ng-value="{{item.id}}" ng-repeat="item in vm.ciudades">{{item.nombre}}</option>
 	</select>
 
-<button type="submit">Registrar</button>
+<button type="submit">Actualizar</button>
 
 </form>
