@@ -1,40 +1,51 @@
 <div>This is the usuarios-create view.</div>
 
 <form name="userForm" ng-submit="vm.createUser()">
-<label for="">Tipo Documento</label>
-	<select name="" id=""  ng-model="vm.usuario.tipoDocumento.id">
+    <label for="">Tipo Documento</label>
+    <select name="" id="" ng-model="vm.usuario.tipoDocumento.id">
 		<option ng-value="{{item.id}}" ng-repeat="item in vm.tiposDocumento">{{item.descripcion}}</option>
 	</select>
 
-	<label for="">Documento</label>
-	<input type="text" ng-model="vm.usuario.numDocumento">
+    <label for="">Documento</label>
+    <input type="text" ng-model="vm.usuario.numDocumento">
 
-<label for="">Apellidos</label>
-	<input type="text" ng-model="vm.usuario.apellidos">
+    <label for="">Apellidos</label>
+    <input type="text" ng-model="vm.usuario.apellidos">
 
-	<label for="">Nombres</label>
-	<input type="text" ng-model="vm.usuario.nombres">
+    <label for="">Nombres</label>
+    <input type="text" ng-model="vm.usuario.nombres">
 
-	<label for="">Email</label>
-	<input type="text" ng-model="vm.usuario.email">
+    <label for="">Email</label>
+    <input type="text" ng-model="vm.usuario.email">
 
-	<label for="">password</label>
-	<input type="password" ng-model="vm.usuario.password">
+    <label for="">password</label>
+    <input type="password" ng-model="vm.usuario.password">
 
-	<label for="">Sexo</label>
-	<input type="text" ng-model="vm.usuario.sexo">
+    <label for="">Sexo</label>
+    <input type="text" ng-model="vm.usuario.sexo">
 
-	<label for="">Departamentos</label>
+    <label for="">Departamentos</label>
 
-	<select name="" id="" ng-model="vm.idDepartamento" ng-change="vm.getCiudades()">
+    <select name="" id="" ng-model="vm.idDepartamento" ng-change="vm.getCiudades()">
 		<option ng-value="{{item.id}}" ng-repeat="item in vm.departamentos">{{item.nombre}}</option>
 	</select>
 
-	<label for="">Ciudad</label>
-	<select name="" id=""  ng-model="vm.usuario.ciudad.id">
+    <label for="">Ciudad</label>
+    <select name="" id="" ng-model="vm.usuario.ciudad.id">
 		<option ng-value="{{item.id}}" ng-repeat="item in vm.ciudades">{{item.nombre}}</option>
 	</select>
 
-<button type="submit">Registrar</button>
+    <div>
+        <label for="foto-input">
+            	       Subir Foto
+          	  </label>
+        <input type="file" id="foto-input" style="visibility:hidden;" accept="image/*" on-read-img="vm.imageLoad($fileContent)">
+    </div>
+    <div class="cropArea center-block img-responsive">
+        <img-crop image="vm.image" result-image="vm.croppedImage" area-type="rectangle" aspect-ratio="1.6" init-max-area="true" result-image-size='{w: 400,h: 250}' chargement="'Cargando'">
+        </img-crop>
+    </div>
+
+    <button type="submit">Registrar</button>
 
 </form>
