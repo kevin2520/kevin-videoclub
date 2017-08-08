@@ -10,7 +10,7 @@ angular.module('videoClubApp')
       })
       .state('usuarios-list', {
         url: '/usuarios-list',
-        authenticate: ["ADMIN","EMPLEADO"],
+        authenticate: ["ADMIN"],
         template: '<usuarios-list></usuarios-list>'
       });
   });

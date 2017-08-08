@@ -88,7 +88,7 @@ function AuthService($auth,$state,usuariosService,localStorageService){
 		if(Auth.isAuthenticated()){
 			return $auth.getPayload().roles;
 		} else{
-			return null;
+			return false;
 		}
 	}
 

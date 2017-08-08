@@ -13,13 +13,13 @@
           var roles = AuthService.getRoles();
           console.log("ROLES AUTH", roles);
           if(roles !== false){
-            for (var i = 0; i < roles.length; i++) {
+
               for (var j = 0; j < stateRoles.length; j++) {
-                if(roles[i] == stateRoles[j]){
+                if(roles.indexOf(stateRoles[j]) !== -1){
                   return;
                 }
               }
-            }
+
             event.preventDefault();
             $state.go("forbidden");
           }else{
