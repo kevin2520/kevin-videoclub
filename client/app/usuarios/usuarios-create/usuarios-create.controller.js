@@ -33,8 +33,6 @@
         }
 
         createUser() {
-            console.log('IMAGEN');
-            console.log(this.croppedImage);
             if (this.croppedImage) {
                 var newImagen = this.croppedImage.split(',');
                 this.usuario.tipoImagen = newImagen[0];

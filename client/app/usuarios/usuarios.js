@@ -5,10 +5,12 @@ angular.module('videoClubApp')
     $stateProvider
       .state('usuarios-create', {
         url: '/usuarios-create',
-        template: '<usuarios-create></usuarios-create>'
+        authenticate:true,
+        template: '<usuarios-create></usuarios-create>',
       })
       .state('usuarios-list', {
         url: '/usuarios-list',
+        authenticate: ["ADMIN","EMPLEADO"],
         template: '<usuarios-list></usuarios-list>'
       });
   });

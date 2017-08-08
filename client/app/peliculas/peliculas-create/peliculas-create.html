@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form name="peliculasForm" ng-submit="vm.peliculaCreate()">
+			<div class="form-group">
+				<label for="">Nombre pelicula</label>
+				<input  type="text" class="form-control" ng-model="vm.pelicula.nombre">
+			</div>
+			<div class="form-group">
+				<label for="">Descripción</label>
+				<input type="text" class="form-control" ng-model="vm.pelicula.descripcion">
+			</div>
+
+			<div class="form-group">
+				<label class="btn btn-primary" for="image-input">Imagen</label>
+				<input id="image-input" type="file" class="form-control" style="visibility: hidden;" accept="image/*" on-read-img="vm.imageLoad($fileContent)">
+			</div>
+			<div ng-show="vm.image" class="cropArea center-block img-responsive" >
+				<img-crop image="vm.image" result-image="vm.croppedImage" area-type="rectangle" aspect-ratio="1.6" init-max-area="false" result-image-size="{w:400,h:250}" cnargement="'Cargando..'" ></img-crop>
+			</div>
+			<button class="btn btn-primary" type="submit">Guardar</button>
+		</form>
+	</div>
+</div>

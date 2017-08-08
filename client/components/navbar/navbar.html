@@ -17,12 +17,20 @@
          <li ng-if="vm.AuthService.isAdmin()" ui-sref-active="active"><a ui-sref="usuarios-list">Usuarios</a></li>
          <li ng-if="vm.AuthService.isAdmin()" ui-sref-active="active"><a ui-sref="usuarios-create">Nuevo usuario</a></li>
          
-         <li ng-if="vm.AuthService.isAuthenticated()" ui-sref-active="active"><a ui-sref="peliculas-list">Peliculas</a></li>
+        
+            <li  class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Peliculas <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+             <li ng-if="vm.AuthService.isAuthenticated()" ui-sref-active="active"><a ui-sref="peliculas-list">Peliculas</a></li>
+             <li ng-if="vm.AuthService.isAuthenticated()" ui-sref-active="active"><a ui-sref="peliculas-create">Add Peliculas</a></li>
 
+          </ul>
+        </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li ng-show="!vm.AuthService.isAuthenticated()"><a ui-sref="login">Login</a></li>
+        <li ng-show="vm.AuthService.isAuthenticated()" class="img-avatar"><a href=""><img ng-src="{{vm.AuthService.getImagePerfil()}}" alt=""></a></li>
         <li ng-show="vm.AuthService.isAuthenticated()" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{vm.AuthService.datosUsuario()}} <span class="caret"></span></a>
           <ul class="dropdown-menu">

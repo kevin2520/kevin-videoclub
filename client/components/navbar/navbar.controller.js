@@ -10,8 +10,9 @@ class NavbarController {
 		  this.isCollapsed = true;
 		 
 		 this.AuthService = AuthService; 	
+		
   }
- 
+
 
 
 }
