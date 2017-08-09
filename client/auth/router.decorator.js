@@ -7,19 +7,16 @@
         if(!next.authenticate){
           return;
         }
-
         if(typeof next.authenticate == 'object'){
           var stateRoles = next.authenticate;
           var roles = AuthService.getRoles();
-        
-          if(roles !== false){
+          if(roles == false){
 
               for (var j = 0; j < stateRoles.length; j++) {
-                if(roles.indexOf(stateRoles[j]) !== -1){
+                if(roles.indexOf(stateRoles[j]) !== 1){
                   return;
                 }
               }
-
             event.preventDefault();
             $state.go("forbidden");
           }else{
