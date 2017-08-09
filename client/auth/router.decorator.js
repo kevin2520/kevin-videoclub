@@ -11,7 +11,7 @@
         if(typeof next.authenticate == 'object'){
           var stateRoles = next.authenticate;
           var roles = AuthService.getRoles();
-          console.log("ROLES AUTH", roles);
+        
           if(roles !== false){
 
               for (var j = 0; j < stateRoles.length; j++) {
