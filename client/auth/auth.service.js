@@ -17,7 +17,7 @@ function AuthService($auth,$state,usuariosService,localStorageService){
 		getRoles: getRoles
 	}
 
-	function login(user,collback){
+	function login(user,callback){
 		$auth.login(user)
 		.then(response => {
 			console.log("Login ok",response);

@@ -9,6 +9,9 @@
             this.$state = $state;
             this.tiposDocumentosService = tiposDocumentosService;
             this.ciudadesService = ciudadesService;
+
+            this.selectedItem  = null;
+            this.searchText    = null;
         }
         $onInit() {
             this.departamentosService.query().$promise
@@ -23,13 +26,17 @@
                 })
                 .catch(err => console.error(err));
         }
-        getCiudades() {
-            this.ciudadesService.getCiudades({ idDepartamento: this.idDepartamento }).$promise
-                .then(response => {
-                    this.ciudades = response;
-                    console.log("Ciudades", this.ciudades);
-                })
-                .catch(err => console.error(err));
+
+
+        getCiudades(searchText) {
+
+
+  return this.ciudadesService.getCiudades({ nombre:searchText }).$promise
+   .then(response=> {
+     // Map the response object to the data object.
+     console.log("response",response);
+     return response;
+   })
         }
 
         createUser() {

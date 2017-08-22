@@ -12,5 +12,10 @@ angular.module('videoClubApp')
         url: '/usuarios-list',
         authenticate: ["ADMIN"],
         template: '<usuarios-list></usuarios-list>'
+      })
+      .state('usuarios-update', {
+        url: '/usuarios-update',
+        authenticate: ["ADMIN"],
+        template: '<usuarios-update></usuarios-update>'
       });
   });

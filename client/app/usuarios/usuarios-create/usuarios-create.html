@@ -26,14 +26,22 @@
 
     <label for="">Departamentos</label>
 
-    <select name="" id="" ng-model="vm.idDepartamento" ng-change="vm.getCiudades()">
-		<option ng-value="{{item.id}}" ng-repeat="item in vm.departamentos">{{item.nombre}}</option>
-	</select>
+ el id de la ciudad {{vm.selectedItem.nombre}} es {{vm.selectedItem.id}}
+<md-autocomplete flex
+            md-input-name="autocompleteField"
+            md-selected-item="vm.selectedItem"
+            md-search-text="vm.searchText"
+            md-items="item in vm.getCiudades(vm.searchText)"
+            md-item-text="item.nombre"
+            md-floating-label="Ciudad">
+          <md-item-template>
+            <span md-highlight-text="vm.searchText">{{item.nombre}}</span>
+          </md-item-template>
+          <md-not-found >
+           C mamo
+          </md-not-found>
+        </md-autocomplete>
 
-    <label for="">Ciudad</label>
-    <select name="" id="" ng-model="vm.usuario.ciudad.id">
-		<option ng-value="{{item.id}}" ng-repeat="item in vm.ciudades">{{item.nombre}}</option>
-	</select>
 
     <div>
         <label for="foto-input">
