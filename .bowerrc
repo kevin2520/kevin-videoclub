@@ -1,3 +1,4 @@
 {
-    "directory": "client/bower_components"
+    "directory": "client/bower_components",
+    "proxy":"http://proxy2.sena.edu.co:80"
 }
